@@ -22,19 +22,43 @@
       rel="stylesheet"
     />
     <title>Personal Website</title>
-    <link rel="stylesheet" href="assets/styles/style.css" />
-    <link rel="stylesheet" href="assets/styles/index.css" />
   </head>
-  <body>
-    <nav>
-      <a href="index.html">
-        <img src="assets/img/s-logo.webp" alt="logo" />
-      </a>
-      <ul>
-        <div class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="project.html">My Project</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
+  <body style="font-family: Poppins">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-3">
+      <div class="container-fluid">
+        <a href="index.html" class="me-lg-3">
+          <img src="assets/img/s-logo.webp" alt="logo" width="25rem" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul
+            class="navbar-nav me-auto mb-2 mb-lg-0 d-sm-flex justify-content-center"
+          >
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="project.html">My Project</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="testimonials.html">Testimonials</a>
+            </li> -->
+          </ul>
+          <button class="btn btn-dark">
+            <a class="nav-link" href="contact-form.html">Contact Me</a>
+          </button>
         </div>
         <li>
           <a href="contact-form.html" class="contact-me">Contact Me</a>
@@ -44,11 +68,14 @@
         <i class="fas fa-bars"></i>
       </button>
     </nav>
-    <section class="container">
-      <div class="left-side">
-        <div class="about">
-          <h2>Hi Welcome to my personal website</h2>
-          <p>
+
+    <div class="container">
+      <div
+        class="card mt-5 d-lg-flex flex-lg-row p-4 align-items-center shadow-sm"
+      >
+        <div class="card-body w-auto">
+          <h2 class="fw-bold">Hi Welcome to my personal website</h2>
+          <p class="card-text">
             Hey there! I'm Steward, a passionate full-stack developer based in
             the vibrant city of Manado, nestled in the heart of Indonesia's
             Sulawesi Utara province. At 24 years old, I've dedicated myself to
@@ -59,46 +86,61 @@
             Twitter—I'm always eager to meet fellow enthusiasts who share my
             passion for coding and technology.
           </p>
-        </div>
-        <div class="contact">
-          <button>
-            <a href="mailto:stewardyohanes29@gmail.com">Contact</a>
-          </button>
-          <p>
+          <div class="d-flex gap-4 align-items-center">
+            <button class="btn btn-dark">
+              <a href="mailto:stewardyohanes29@gmail.com" class="nav-link"
+                >Contact</a
+              >
+            </button>
+            <p class="mt-2">
+              <a
+                href="https://drive.google.com/file/d/1D7-oAv1dyHZSsqguTa641BHmGTYv6d3e/view?usp=drive_link"
+                target="_blank"
+                class="nav-link"
+              >
+                download CV
+                <i class="fa-solid fa-download"></i>
+              </a>
+            </p>
+          </div>
+          <div class="d-flex gap-4 mt-4 fs-2">
             <a
-              href="https://drive.google.com/file/d/1D7-oAv1dyHZSsqguTa641BHmGTYv6d3e/view?usp=drive_link"
+              class="nav-link"
+              href="https://www.linkedin.com/in/steward-lumowa/"
               target="_blank"
             >
-              download CV
-              <i class="fa-solid fa-download"></i>
+              <i class="fa-brands fa-linkedin"></i>
             </a>
-          </p>
+            <a
+              class="nav-link"
+              href="https://www.instagram.com/stewardyohanes"
+              target="_blank"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              class="nav-link"
+              href="https://www.facebook.com/steward.y.lumowa"
+              target="_blank"
+            >
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a class="nav-link" href="#">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          </div>
         </div>
-        <div class="social-media">
-          <a href="https://www.linkedin.com/in/steward-lumowa/" target="_blank">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-          <a href="https://www.instagram.com/stewardyohanes" target="_blank">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a href="https://www.facebook.com/steward.y.lumowa" target="_blank">
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-          <a href="#">
-            <i class="fa-brands fa-twitter"></i>
-          </a>
-        </div>
-      </div>
-      <div class="right-side">
-        <div class="card">
-          <img src="assets/img/profile.jpeg" alt="profile" />
-          <div class="card-name">
-            <h2>Steward Lumowa</h2>
+        <div class="card shadow border-0">
+          <div class="card-body">
+            <img src="assets/img/profile.jpeg" alt="profile" width="100%" />
+          </div>
+          <div class="text-center">
+            <h2 class="fw-bold">Steward Lumowa</h2>
             <p>Fullstack Developer</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

@@ -17,7 +17,7 @@ app.use("/assets", express.static(path.join(__dirname, "./assets")));
 app.get("/", home);
 
 app.get("/project", project);
-app.get("/project/:id", detailProject);
+app.get("/detail-project/:id", detailProject);
 
 app.get("/add-project", addProjectView);
 app.post("/add-project", addProject);

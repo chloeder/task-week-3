@@ -24,10 +24,10 @@
     />
     <title>Personal Website | Contact Form</title>
   </head>
-  <body>
+  <body style="font-family: Poppins">
     <nav class="navbar navbar-expand-lg bg-body-tertiary p-3">
       <div class="container-fluid">
-        <a href="/" class="me-lg-3">
+        <a href="/project" class="me-lg-3">
           <img src="../assets/img/s-logo.webp" alt="logo" width="25rem" />
         </a>
         <button
@@ -46,10 +46,11 @@
             class="navbar-nav me-auto mb-2 mb-lg-0 d-sm-flex justify-content-center"
           >
             <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" aria-current="page" href="/project">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/project">My Project</a>
+              <a class="nav-link" aria-current="page" href="/add-project">Add My
+                Project</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="testimonials.html">Testimonials</a>
@@ -63,7 +64,7 @@
     </nav>
 
     <div class="container">
-      <h1 class="fw-bold text-center mt-4">ADD MY PROJECT</h1>
+      <h1 class="fw-bold text-center mt-4">CONTACT ME</h1>
       <form class="row g-4">
         <div class="col-12">
           <label for="project" class="form-label">Name</label>
@@ -80,7 +81,7 @@
         <div class="col-12">
           <label for="project" class="form-label">Subject</label>
           <select class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
+            <option selected>Please select subject</option>
             <option value="1">Website Application</option>
             <option value="2">Mobile Application</option>
             <option value="3">Dekstop Application</option>

@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/assets/img/s-logo.webp" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/s-logo.webp" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -28,8 +27,8 @@
   <body style="font-family: Poppins">
     <nav class="navbar navbar-expand-lg bg-body-tertiary p-3">
       <div class="container-fluid">
-        <a href="index.html" class="me-lg-3">
-          <img src="assets/img/s-logo.webp" alt="logo" width="25rem" />
+        <a href="/" class="me-lg-3">
+          <img src="../assets/img/s-logo.webp" alt="logo" width="25rem" />
         </a>
         <button
           class="navbar-toggler"
@@ -47,11 +46,13 @@
             class="navbar-nav me-auto mb-2 mb-lg-0 d-sm-flex justify-content-center"
           >
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link active" aria-current="page" href="project.html"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="project.html"
-                >My Project</a
+              <a class="nav-link" aria-current="page" href="add-project.html"
+                >Add My Project</a
               >
             </li>
             <!-- <li class="nav-item">
@@ -59,102 +60,18 @@
             </li> -->
           </ul>
           <button class="btn btn-dark">
-            <a class="nav-link" href="contact-form.html">Contact Me</a>
+            <a class="nav-link" href="/contact-form">Contact Me</a>
           </button>
         </div>
       </div>
     </nav>
 
     <div class="container">
-      <h1 class="fw-bold text-center mt-4">ADD MY PROJECT</h1>
-      <form class="row g-4">
-        <div class="col-12">
-          <label for="project" class="form-label">Project Name</label>
-          <input type="text" class="form-control" id="inputAddress" />
-        </div>
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Start Date</label>
-          <input type="date" class="form-control" id="inputEmail4" />
-        </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">End Date</label>
-          <input type="date" class="form-control" id="inputPassword4" />
-        </div>
-        <div class="col-12">
-          <label for="inputAddress2" class="form-label">Description</label>
-          <textarea
-            class="form-control"
-            name="description"
-            id="description"
-            cols="30"
-            rows="10"
-          ></textarea>
-        </div>
-        <div class="col-12">
-          <label for="label" class="form-label d-block">Technologies</label>
-          <div class="form-check form-check-inline">
-            <div class="mb-3">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckbox1"
-                value="option1"
-              />
-              <label class="form-check-label" for="inlineCheckbox1"
-                >Node Js</label
-              >
-            </div>
-            <div>
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckbox1"
-                value="option1"
-              />
-              <label class="form-check-label" for="inlineCheckbox1"
-                >React Js</label
-              >
-            </div>
-          </div>
-          <div class="form-check form-check-inline">
-            <div class="mb-3">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckbox1"
-                value="option1"
-              />
-              <label class="form-check-label" for="inlineCheckbox1"
-                >Next Js</label
-              >
-            </div>
-            <div>
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="inlineCheckbox1"
-                value="option1"
-              />
-              <label class="form-check-label" for="inlineCheckbox1"
-                >React Js</label
-              >
-            </div>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="mb-3">
-            <label for="formFile" class="form-label">Upload Image</label>
-            <input class="form-control" type="file" id="formFile" />
-          </div>
-        </div>
-        <div class="col-12 d-flex justify-content-end">
-          <button type="submit" class="btn btn-dark text-end">Submit</button>
-        </div>
-      </form>
-    </div>
-
-    <div class="container">
-      <h1 class="fw-bold text-center mt-5">MY PROJECT</h1>
+      <div class="d-flex justify-content-between mt-4 align-items-center">
+        <h1 class="fw-bold">MY PROJECT</h1>
+        <a href="add-project.html" class="btn btn-dark">Add New Project</a>
+      </div>
+      <hr />
       <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
         <div class="col">
           <div class="card">

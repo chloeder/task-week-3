@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/assets/img/s-logo.webp" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/s-logo.webp" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -17,120 +16,150 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <title>Personal Website | Contact Form</title>
-    <link rel="stylesheet" href="assets/styles/style.css" />
-    <link rel="stylesheet" href="assets/styles/detail-project.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <title>Personal Website | Detail Project</title>
   </head>
-  <body>
-    <nav>
-      <a href="index.html">
-        <img src="assets/img/s-logo.webp" alt="logo" />
-      </a>
-      <ul>
-        <div class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="project.html" class="active">My Project</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
+  <body style="font-family: Poppins;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-3">
+      <div class="container-fluid">
+        <a href="/" class="me-lg-3">
+          <img src="../assets/img/s-logo.webp" alt="logo" width="25rem" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul
+            class="navbar-nav me-auto mb-2 mb-lg-0 d-sm-flex justify-content-center"
+          >
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/project">My
+                Project</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="testimonials.html">Testimonials</a>
+            </li> -->
+          </ul>
+          <button class="btn btn-dark">
+            <a class="nav-link" href="/contact-form">Contact Me</a>
+          </button>
         </div>
-        <li>
-          <a href="contact-form.html" class="contact-me">Contact Me</a>
-        </li>
-      </ul>
-      <button class="hamburger" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-      </button>
+      </div>
     </nav>
-    <div class="container-detail-project">
-      <h1>Dumbways Web App</h1>
-      <div class="detail-header">
-        <div class="left-header">
+
+    <div class="container-fluid px-5">
+      <h1 class="text-center my-5">Dumbways Web App</h1>
+      <div class="row mb-3">
+        <div class="col-9">
           <img
             src="https://images.unsplash.com/photo-1567581935884-3349723552ca?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="test"
+            class="w-100"
           />
         </div>
-
-        <div class="right-header">
-          <div class="duration">
-            <h2>Duration</h2>
-            <p>
-              <i class="fa-solid fa-calendar-days"></i>
-              12 Jan 2023 - 14 Jan 2023
-            </p>
-            <p><i class="fa-solid fa-clock"></i> 2 Days</p>
-          </div>
-
-          <div class="technology">
-            <h2>Technologies</h2>
-            <p><i class="fa-brands fa-react"></i> React JS</p>
-            <p><i class="fa-brands fa-node-js"></i> Node JS</p>
-            <p><i class="fa-brands fa-js"></i> JavaScript</p>
-          </div>
+        <div class="col-3">
+          <h2>Duration</h2>
+          <p>
+            <i class="fa-solid fa-calendar-days"></i>
+            12 Jan 2023 - 14 Jan 2023
+          </p>
+          <p>
+            <i class="fa-solid fa-clock"></i>
+            2 Days
+          </p>
+          <h2>Technologies</h2>
+          <p><i class="fa-brands fa-react"></i> React JS</p>
+          <p><i class="fa-brands fa-node-js"></i> Node JS</p>
+          <p><i class="fa-brands fa-js"></i> JavaScript</p>
         </div>
       </div>
-      <div class="detail-body">
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere illo
-          deleniti temporibus saepe et ut alias, voluptatum dicta id ipsam
-          consequatur iusto, qui ab, voluptate eveniet cupiditate? Libero animi
-          ipsa culpa eaque aspernatur repellat repudiandae eum, facere minima
-          sed alias expedita maxime velit, at odit ad ex quidem reprehenderit?
-          Odio, minima? Suscipit, delectus rerum sapiente itaque totam vel magni
-          provident alias inventore, amet laboriosam dolorem modi molestias.
-          Consequuntur modi non quas tenetur quod laudantium! Blanditiis
-          accusantium nobis iure omnis veritatis. Quibusdam ab facilis
-          voluptatibus quod, reprehenderit iure doloribus numquam quae qui
-          tenetur amet alias, necessitatibus, possimus officia! Hic error nulla
-          tempore labore assumenda exercitationem est veritatis ipsam molestias
-          delectus quasi, a esse vero temporibus amet ex iure culpa! Voluptatem
-          blanditiis, impedit tenetur vel deserunt culpa ex iste officiis
-          recusandae sunt ut tempora? Quia quisquam, mollitia assumenda adipisci
-          nulla voluptatum maxime! Ipsam quisquam sint voluptatem voluptates
-          accusamus suscipit veniam aliquid obcaecati officia dolorem numquam,
-          earum ad. Sed, minima eaque! Excepturi aliquid obcaecati
-          exercitationem doloremque a facere temporibus illum eos ipsum culpa,
-          officiis perspiciatis odit voluptatibus sint. Quam tempora
-          perspiciatis exercitationem quidem recusandae accusantium non. Qui
-          saepe numquam, velit similique neque officiis. Laborum aliquam
-          molestiae nulla corporis, fugiat, ex earum accusamus odit repellendus
-          exercitationem, deleniti nobis rerum sint. Minima expedita neque eius!
-          Fuga optio tempora praesentium, placeat maiores nam aperiam distinctio
-          molestiae dolor commodi ipsa sapiente earum adipisci, minus
-          dignissimos cumque amet deleniti laudantium, recusandae dolorem
-          facilis et minima. Optio, repudiandae nobis? Rem cumque ut nostrum
-          quia illo ipsa saepe excepturi ad consectetur ratione animi quas
-          deserunt natus minima aspernatur tempore magni adipisci, officiis sint
-          at! Dolores, vitae rerum illo repellat accusamus quibusdam
-          necessitatibus, maxime ipsa assumenda, iste labore. Aperiam molestiae
-          voluptatibus voluptatum laborum soluta. Commodi, quidem? Eius nesciunt
-          cumque atque amet obcaecati earum blanditiis vel pariatur provident
-          rem in non fugit inventore nam nulla vitae exercitationem animi
-          deserunt, eligendi quos! Nobis quasi doloribus ex eum culpa sint dicta
-          voluptas est, aliquid asperiores dolorum, libero quibusdam enim nisi?
-          Soluta nobis deleniti quam molestias fugiat voluptatem illo magni
-          perferendis omnis! Voluptates nesciunt sapiente deserunt tempore.
-          Amet, quasi fugiat, maiores dolores cupiditate quod eius id
-          accusantium nulla impedit quae veritatis sint tempora blanditiis harum
-          quo deleniti ea mollitia totam unde. Voluptatum laudantium nesciunt
-          illum sequi at delectus itaque libero, hic mollitia vero ratione nam
-          quis architecto laboriosam fuga illo possimus temporibus ipsa autem.
-          Perspiciatis sit, autem, architecto adipisci qui quia nobis vel iste
-          velit maiores accusamus ipsa assumenda molestiae. Minima fuga qui
-          culpa quae ea. Dolor numquam laborum esse eveniet nostrum et, debitis
-          optio tempora quod, est cupiditate nihil, quas quisquam aspernatur
-          magnam officia? Repellat quibusdam voluptatum ad ratione nostrum nisi
-          repudiandae, minus earum, distinctio asperiores dolore atque adipisci
-          minima nesciunt! Atque, dolore adipisci! At exercitationem quidem
-          vitae nihil deleniti illum odio nesciunt iusto sequi, similique
-          voluptas aut. Optio ipsum corrupti, voluptas explicabo nemo cupiditate
-          minus perferendis cum? Dolorum non reprehenderit nesciunt impedit
-          quidem. Deleniti facere consequatur sunt ipsa cupiditate perferendis
-          omnis molestiae exercitationem dolore vero ducimus, mollitia vel
-          laborum autem voluptate! Animi, veritatis!
-        </p>
+      <div class="row">
+        <div class="col">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere
+            illo deleniti temporibus saepe et ut alias, voluptatum dicta id
+            ipsam consequatur iusto, qui ab, voluptate eveniet cupiditate?
+            Libero animi ipsa culpa eaque aspernatur repellat repudiandae eum,
+            facere minima sed alias expedita maxime velit, at odit ad ex quidem
+            reprehenderit? Odio, minima? Suscipit, delectus rerum sapiente
+            itaque totam vel magni provident alias inventore, amet laboriosam
+            dolorem modi molestias. Consequuntur modi non quas tenetur quod
+            laudantium! Blanditiis accusantium nobis iure omnis veritatis.
+            Quibusdam ab facilis voluptatibus quod, reprehenderit iure doloribus
+            numquam quae qui tenetur amet alias, necessitatibus, possimus
+            officia! Hic error nulla tempore labore assumenda exercitationem est
+            veritatis ipsam molestias delectus quasi, a esse vero temporibus
+            amet ex iure culpa! Voluptatem blanditiis, impedit tenetur vel
+            deserunt culpa ex iste officiis recusandae sunt ut tempora? Quia
+            quisquam, mollitia assumenda adipisci nulla voluptatum maxime! Ipsam
+            quisquam sint voluptatem voluptates accusamus suscipit veniam
+            aliquid obcaecati officia dolorem numquam, earum ad. Sed, minima
+            eaque! Excepturi aliquid obcaecati exercitationem doloremque a
+            facere temporibus illum eos ipsum culpa, officiis perspiciatis odit
+            voluptatibus sint. Quam tempora perspiciatis exercitationem quidem
+            recusandae accusantium non. Qui saepe numquam, velit similique neque
+            officiis. Laborum aliquam molestiae nulla corporis, fugiat, ex earum
+            accusamus odit repellendus exercitationem, deleniti nobis rerum
+            sint. Minima expedita neque eius! Fuga optio tempora praesentium,
+            placeat maiores nam aperiam distinctio molestiae dolor commodi ipsa
+            sapiente earum adipisci, minus dignissimos cumque amet deleniti
+            laudantium, recusandae dolorem facilis et minima. Optio, repudiandae
+            nobis? Rem cumque ut nostrum quia illo ipsa saepe excepturi ad
+            consectetur ratione animi quas deserunt natus minima aspernatur
+            tempore magni adipisci, officiis sint at! Dolores, vitae rerum illo
+            repellat accusamus quibusdam necessitatibus, maxime ipsa assumenda,
+            iste labore. Aperiam molestiae voluptatibus voluptatum laborum
+            soluta. Commodi, quidem? Eius nesciunt cumque atque amet obcaecati
+            earum blanditiis vel pariatur provident rem in non fugit inventore
+            nam nulla vitae exercitationem animi deserunt, eligendi quos! Nobis
+            quasi doloribus ex eum culpa sint dicta voluptas est, aliquid
+            asperiores dolorum, libero quibusdam enim nisi? Soluta nobis
+            deleniti quam molestias fugiat voluptatem illo magni perferendis
+            omnis! Voluptates nesciunt sapiente deserunt tempore. Amet, quasi
+            fugiat, maiores dolores cupiditate quod eius id accusantium nulla
+            impedit quae veritatis sint tempora blanditiis harum quo deleniti ea
+            mollitia totam unde. Voluptatum laudantium nesciunt illum sequi at
+            delectus itaque libero, hic mollitia vero ratione nam quis
+            architecto laboriosam fuga illo possimus temporibus ipsa autem.
+            Perspiciatis sit, autem, architecto adipisci qui quia nobis vel iste
+            velit maiores accusamus ipsa assumenda molestiae. Minima fuga qui
+            culpa quae ea. Dolor numquam laborum esse eveniet nostrum et,
+            debitis optio tempora quod, est cupiditate nihil, quas quisquam
+            aspernatur magnam officia? Repellat quibusdam voluptatum ad ratione
+            nostrum nisi repudiandae, minus earum, distinctio asperiores dolore
+            atque adipisci minima nesciunt! Atque, dolore adipisci! At
+            exercitationem quidem vitae nihil deleniti illum odio nesciunt iusto
+            sequi, similique voluptas aut. Optio ipsum corrupti, voluptas
+            explicabo nemo cupiditate minus perferendis cum? Dolorum non
+            reprehenderit nesciunt impedit quidem. Deleniti facere consequatur
+            sunt ipsa cupiditate perferendis omnis molestiae exercitationem
+            dolore vero ducimus, mollitia vel laborum autem voluptate! Animi,
+            veritatis!
+          </p>
+        </div>
       </div>
     </div>
-    <script src="./assets/scripts/main.js"></script>
-    <script src="./assets/scripts/detail-project.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

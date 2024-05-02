@@ -74,105 +74,51 @@
       </div>
       <hr />
       <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
-        <div class="col">
-          <div class="card">
-            <img
-              height="450px"
-              width="100%"
-              src="https://plus.unsplash.com/premium_photo-1688045530445-66a06a5e9ba6?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="card-img-top object-fit-"
-              alt="image"
-            />
-            <div class="card-body">
-              <h1>qweqwe</h1>
-              <p>Duration : 8 Days</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Distinctio ab sequi veniam dolore ullam praesentium saepe, quis
-                eveniet nam nihil aliquam quos iusto totam adipisci? Voluptatum
-                molestiae et dignissimos beatae, quas facere minus iusto
-                consectetur, natus temporibus libero labore eum pariatur! Dicta
-                ipsa facere est vero deleniti magni sed distinctio.
-              </p>
-              <div class="d-flex gap-3 fs-1 mb-4">
-                <i class="fa-brands fa-node-js"></i><i
-                  class="fa-brands fa-react"
-                ></i>
+        {{#each data}}
+          <div class="col">
+            <div class="card">
+              <a href="/detail-project/{{id}}">
+                <img
+                  height="450px"
+                  width="100%"
+                  src="{{file}}"
+                  class="card-img-top object-fit-"
+                  alt="image"
+                />
+              </a>
+              <div class="card-body">
+                <h1>{{projectName}}</h1>
+                <p>Duration : {{duration}}</p>
+                <p>
+                  {{description}}
+                </p>
+                <div class="d-flex gap-3 fs-1 mb-4">
+                  {{#each technologies}}
+                    <i class="fa-brands fa-{{this}}"></i>
+                  {{/each}}
+                </div>
               </div>
-
-              <div class="d-flex gap-1">
-                <button class="btn btn-primary w-50">Edit</button>
-                <button class="btn btn-primary w-50">Delete</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img
-              height="450px"
-              width="100%"
-              src="https://plus.unsplash.com/premium_photo-1688045530445-66a06a5e9ba6?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="card-img-top object-fit-"
-              alt="image"
-            />
-            <div class="card-body">
-              <h1>qweqwe</h1>
-              <p>Duration : 8 Days</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Distinctio ab sequi veniam dolore ullam praesentium saepe, quis
-                eveniet nam nihil aliquam quos iusto totam adipisci? Voluptatum
-                molestiae et dignissimos beatae, quas facere minus iusto
-                consectetur, natus temporibus libero labore eum pariatur! Dicta
-                ipsa facere est vero deleniti magni sed distinctio.
-              </p>
-              <div class="d-flex gap-3 fs-1 mb-4">
-                <i class="fa-brands fa-node-js"></i><i
-                  class="fa-brands fa-react"
-                ></i>
-              </div>
-
-              <div class="d-flex gap-1">
-                <button class="btn btn-primary w-50">Edit</button>
-                <button class="btn btn-primary w-50">Delete</button>
+              <div class="card-footer text-center">
+                <a
+                  href="/edit-project/{{id}}"
+                  class="btn btn-primary"
+                  style="width: 40%"
+                >Edit</a>
+                <form
+                  action="/delete-project/{{id}}"
+                  method="post"
+                  class="d-inline"
+                >
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="width: 40%"
+                  >Delete</button>
+                </form>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img
-              height="450px"
-              width="100%"
-              src="https://plus.unsplash.com/premium_photo-1688045530445-66a06a5e9ba6?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="card-img-top object-fit-"
-              alt="image"
-            />
-            <div class="card-body">
-              <h1>qweqwe</h1>
-              <p>Duration : 8 Days</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Distinctio ab sequi veniam dolore ullam praesentium saepe, quis
-                eveniet nam nihil aliquam quos iusto totam adipisci? Voluptatum
-                molestiae et dignissimos beatae, quas facere minus iusto
-                consectetur, natus temporibus libero labore eum pariatur! Dicta
-                ipsa facere est vero deleniti magni sed distinctio.
-              </p>
-              <div class="d-flex gap-3 fs-1 mb-4">
-                <i class="fa-brands fa-node-js"></i><i
-                  class="fa-brands fa-react"
-                ></i>
-              </div>
-
-              <div class="d-flex gap-1">
-                <button class="btn btn-primary w-50">Edit</button>
-                <button class="btn btn-primary w-50">Delete</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        {{/each}}
       </div>
     </div>
 

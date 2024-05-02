@@ -11,13 +11,18 @@ app.set("views", path.join(__dirname, "./views"));
 app.use(express.urlencoded({ extended: false }));
 
 // Middleware
-app.use(express.static(path.join(__dirname, "/assets")));
+app.use("/assets", express.static(path.join(__dirname, "./assets")));
 
 // Routes
 app.get("/", home);
+
 app.get("/project", project);
+app.get("/detail-project/:id", detailProject);
+
 app.get("/add-project", addProjectView);
 app.post("/add-project", addProject);
+
+app.get("/contact-form", contactForm);
 
 const data = [];
 
@@ -36,6 +41,14 @@ function addProjectView(req, res) {
 
 function addProject(req, res) {
   console.log(req.body);
+}
+
+function detailProject(req, res) {
+  res.render("detail-project");
+}
+
+function contactForm(req, res) {
+  res.render("contact-form");
 }
 
 app.listen(port, () => {

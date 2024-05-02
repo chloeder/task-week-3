@@ -22,7 +22,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <title>Personal Website | Contact Form</title>
+    <title>Personal Website | Edit Project</title>
   </head>
   <body style="font-family: Poppins">
     <nav class="navbar navbar-expand-lg bg-body-tertiary p-3">
@@ -46,14 +46,15 @@
             class="navbar-nav me-auto mb-2 mb-lg-0 d-sm-flex justify-content-center"
           >
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/project">Home</a>
-            </li>
-            <li class="nav-item">
               <a
                 class="nav-link active"
                 aria-current="page"
-                href="/add-project"
-              >Add My Project</a>
+                href="/project"
+              >Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/add-project">Add My
+                Project</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="testimonials.html">Testimonials</a>
@@ -67,8 +68,9 @@
     </nav>
 
     <div class="container">
-      <h1 class="fw-bold text-center mt-4">ADD MY PROJECT</h1>
-      <form class="row g-4" action="/add-project" method="post">
+      <h1 class="fw-bold text-center mt-4">EDIT MY PROJECT</h1>
+      <form class="row g-4" action="/edit-project" method="post">
+        <input type="hidden" name="id" value="{{id}}" />
         <div class="col-12">
           <label for="projectName" class="form-label">Project Name</label>
           <input
@@ -76,6 +78,7 @@
             class="form-control"
             id="projectName"
             name="projectName"
+            value="{{projectName}}"
           />
         </div>
         <div class="col-md-6">
@@ -85,11 +88,18 @@
             class="form-control"
             id="startDate"
             name="startDate"
+            value="{{startDate}}"
           />
         </div>
         <div class="col-md-6">
           <label for="endDate" class="form-label">End Date</label>
-          <input type="date" class="form-control" id="endDate" name="endDate" />
+          <input
+            type="date"
+            class="form-control"
+            id="endDate"
+            name="endDate"
+            value="{{endDate}}"
+          />
         </div>
         <div class="col-12">
           <label for="inputAddress2" class="form-label">Description</label>
@@ -99,7 +109,7 @@
             id="description"
             cols="30"
             rows="10"
-          ></textarea>
+          >{{description}}</textarea>
         </div>
         <div class="col-12">
           <label for="label" class="form-label d-block">Technologies</label>
@@ -111,6 +121,7 @@
                 id="inlineCheckbox1"
                 value="node-js"
                 name="technologies"
+                {{isChecked "node-js"}}
               />
               <label class="form-check-label" for="inlineCheckbox1">Node Js</label>
             </div>
@@ -121,6 +132,7 @@
                 id="inlineCheckbox1"
                 value="react"
                 name="technologies"
+                {{isChecked "react"}}
               />
               <label class="form-check-label" for="inlineCheckbox1">React Js</label>
             </div>
@@ -133,6 +145,7 @@
                 id="inlineCheckbox1"
                 value="android"
                 name="technologies"
+                {{isChecked "android"}}
               />
               <label class="form-check-label" for="inlineCheckbox1">Mobile App</label>
             </div>
@@ -143,6 +156,7 @@
                 id="inlineCheckbox1"
                 value="html5"
                 name="technologies"
+                {{isChecked "html5"}}
               />
               <label class="form-check-label" for="inlineCheckbox1">Website App</label>
             </div>

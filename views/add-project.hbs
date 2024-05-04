@@ -55,10 +55,26 @@
                 href="/add-project"
               >Add My Project</a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="testimonials.html">Testimonials</a>
-            </li> -->
           </ul>
+          {{#if isLogin}}
+            <div class="dropdown">
+              <button
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                class="dropdown-toggle me-lg-4 me-md-3 mb-sm-3 mb-lg-0"
+                style="border: none; background-color: transparent"
+              ><i class="fa-regular fa-user"></i>
+                <span class="fw-bold">{{findUser.name}}</span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <form action="/logout" method="POST">
+                    <button class="dropdown-item" type="submit">Logout</button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          {{/if}}
           <button class="btn btn-dark">
             <a class="nav-link" href="/contact-form">Contact Me</a>
           </button>

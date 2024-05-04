@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
   project.init(
     {
       name: DataTypes.STRING,
-      startDate: DataTypes.DATE,
-      endDate: DataTypes.DATE,
+      startDate: DataTypes.DATEONLY,
+      endDate: DataTypes.DATEONLY,
       description: DataTypes.STRING,
       technologies: DataTypes.ARRAY(DataTypes.STRING),
       image: DataTypes.STRING,

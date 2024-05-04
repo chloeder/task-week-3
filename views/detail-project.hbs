@@ -68,11 +68,11 @@
     </nav>
 
     <div class="container-fluid px-5">
-      <h1 class="fw-bold text-center my-5 text-uppercase">{{projectName}}</h1>
+      <h1 class="fw-bold text-center my-5 text-uppercase">{{data.name}}</h1>
       <div class="row mb-3">
         <div class="col-9">
           <img
-            src="{{image}}"
+            src="{{data.image}}"
             alt="test"
             class="w-100 object-fit-cover"
             style="border-radius: 10px; height: 750px"
@@ -82,16 +82,16 @@
           <h2 class="fw-bold">Duration</h2>
           <p class="fs-5">
             <i class="fa-solid fa-calendar-days"></i>
-            {{dateFormat startDate}}
+            {{dateFormat data.startDate}}
             -
-            {{dateFormat endDate}}
+            {{dateFormat data.endDate}}
           </p>
           <p class="fs-5">
             <i class="fa-solid fa-clock"></i>
-            {{duration}}
+            {{calculateDuration data.startDate data.endDate}}
           </p>
           <h2 class="fw-bold mt-5">Technologies</h2>
-          {{#each technologies}}
+          {{#each data.technologies}}
             <p class="text-capitalize fs-5"><i
                 class="fa-brands fa-{{this}}"
               ></i>{{this}}</p>
@@ -101,7 +101,7 @@
       <div class="row">
         <div class="col">
           <p>
-            {{description}}
+            {{data.description}}
           </p>
         </div>
       </div>

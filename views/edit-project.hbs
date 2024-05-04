@@ -69,8 +69,8 @@
 
     <div class="container">
       <h1 class="fw-bold text-center mt-4">EDIT MY PROJECT</h1>
-      <form class="row g-4" action="/edit-project" method="post">
-        <input type="hidden" name="id" value="{{id}}" />
+      <form class="row g-4" action="/edit-project" method="POST">
+        <input type="hidden" name="id" value="{{data.id}}" />
         <div class="col-12">
           <label for="projectName" class="form-label">Project Name</label>
           <input
@@ -78,7 +78,7 @@
             class="form-control"
             id="projectName"
             name="projectName"
-            value="{{projectName}}"
+            value="{{data.name}}"
           />
         </div>
         <div class="col-md-6">
@@ -88,7 +88,7 @@
             class="form-control"
             id="startDate"
             name="startDate"
-            value="{{startDate}}"
+            value="{{data.startDate}}"
           />
         </div>
         <div class="col-md-6">
@@ -98,7 +98,7 @@
             class="form-control"
             id="endDate"
             name="endDate"
-            value="{{endDate}}"
+            value="{{data.endDate}}"
           />
         </div>
         <div class="col-12">
@@ -109,7 +109,7 @@
             id="description"
             cols="30"
             rows="10"
-          >{{description}}</textarea>
+          >{{data.description}}</textarea>
         </div>
         <div class="col-12">
           <label for="label" class="form-label d-block">Technologies</label>

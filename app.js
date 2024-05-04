@@ -3,6 +3,9 @@ const app = express();
 const port = 3000;
 const path = require("path");
 const hbs = require("hbs");
+const config = require("./config/config.json");
+const { Sequelize, QueryTypes } = require("sequelize");
+const sequelize = new Sequelize(config.development);
 
 // setting variables, configurations, etc.
 app.set("view engine", "hbs");
@@ -66,29 +69,35 @@ function home(req, res) {
   res.redirect("/project");
 }
 
-function project(req, res) {
-  res.render("project", { data });
+async function project(req, res) {
+  try {
+    const query = "SELECT * FROM projects";
+    const data = await sequelize.query(query, {
+      type: QueryTypes.SELECT,
+    });
+
+    res.render("project", { data });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function addProjectView(req, res) {
   res.render("add-project");
 }
 
-function addProject(req, res) {
+async function addProject(req, res) {
   const { projectName, startDate, endDate, description, technologies } =
     req.body;
 
-  data.unshift({
-    id: data.length + 1,
-    projectName,
-    startDate,
-    endDate,
-    duration: calculateDuration(startDate, endDate),
-    description,
-    technologies,
-    file: "https://plus.unsplash.com/premium_photo-1688045530445-66a06a5e9ba6?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  const query = `INSERT INTO projects(
+	name, "startDate", "endDate", description, technologies, image, "createdAt", "updatedAt")
+	VALUES ('${projectName}', '${startDate}', '${endDate}','${description}', '{${technologies}}', 'https://www.pwc.com/content/dam/pwc/cz/cs/technology-consulting/kariera/hero_telekomunikace.jpg', now(), now());`;
+  const data = await sequelize.query(query, {
+    type: QueryTypes.INSERT,
   });
-  // console.log("add project", data);
+
+  console.log("add project", data);
 
   res.redirect("/project");
 }
@@ -125,16 +134,19 @@ function editProject(req, res) {
   res.redirect("/project");
 }
 
-function detailProject(req, res) {
+async function detailProject(req, res) {
   const { id } = req.params;
 
-  const project = data.find((data) => data.id == id);
+  const query = `SELECT * FROM projects WHERE id=${id}`;
+  const project = await sequelize.query(query, {
+    type: QueryTypes.SELECT,
+  });
 
   hbs.registerHelper("dateFormat", function (value) {
     return dateFormat(value);
   });
 
-  res.render("detail-project", project);
+  res.render("detail-project", project[0]);
 }
 
 function deleteProject(req, res) {

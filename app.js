@@ -21,13 +21,9 @@ app.use("/assets", express.static(path.join(__dirname, "./assets")));
 // Routes
 app.use(indexRouter);
 
-app.get("/", home);
+app.get("/contact-form", contactForm);
 
 // Services
-function home(req, res) {
-  // res.render("index");
-  res.redirect("/project");
-}
 
 function contactForm(req, res) {
   res.render("contact-form");

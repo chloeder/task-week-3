@@ -10,7 +10,7 @@ const {
 const express = require("express");
 const router = express.Router();
 
-router.get("/project", findAllProjects);
+router.get("/", findAllProjects);
 router.get("/project/:id", getProjectById);
 router.get("/add-project", createProjectView);
 router.post("/add-project", createProject);

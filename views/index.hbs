@@ -20,6 +20,12 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <title>Personal Website</title>
   </head>
   <body style="font-family: Poppins">
@@ -47,7 +53,8 @@
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/project">My Project</a>
+              <a class="nav-link" aria-current="page" href="/add-project">Add
+                Project</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="testimonials.html">Testimonials</a>
@@ -57,13 +64,7 @@
             <a class="nav-link" href="/contact-form">Contact Me</a>
           </button>
         </div>
-        <li>
-          <a href="contact-form.html" class="contact-me">Contact Me</a>
-        </li>
-      </ul>
-      <button class="hamburger" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-      </button>
+      </div>
     </nav>
 
     <div class="container">
@@ -137,6 +138,63 @@
             <p>Fullstack Developer</p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <hr style="margin: 10rem auto" />
+
+    <div class="container">
+      <div class="d-flex justify-content-between mt-4 align-items-center">
+        <h1 class="fw-bold">MY PROJECT</h1>
+        <a href="/add-project" class="btn btn-dark">Add New Project</a>
+      </div>
+      <hr />
+      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
+        {{#each data}}
+          <div class="col">
+            <div class="card">
+              <a href="/project/{{id}}">
+                <img
+                  height="450px"
+                  width="100%"
+                  src="{{image}}"
+                  class="card-img-top object-fit-"
+                  alt="image"
+                />
+              </a>
+              <div class="card-body">
+                <h1 class="card-title fw-bold text-uppercase">{{name}}</h1>
+                <p>Duration : {{calculateDuration startDate endDate}}</p>
+                <p>
+                  {{description}}
+                </p>
+                <div class="d-flex gap-3 fs-1 mb-4">
+                  {{#each technologies}}
+                    <i class="fa-brands fa-{{this}}"></i>
+                  {{/each}}
+                </div>
+              </div>
+              <div class="card-footer text-center">
+                <a
+                  href="/edit-project/{{id}}"
+                  class="btn btn-primary"
+                  style="width: 40%"
+                >Edit</a>
+                <form
+                  action="/delete-project/{{id}}"
+                  method="post"
+                  class="d-inline"
+                >
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="width: 40%"
+                  >Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        {{/each}}
       </div>
     </div>
 

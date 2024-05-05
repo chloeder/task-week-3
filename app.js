@@ -33,14 +33,9 @@ app.use(
 app.use(indexRouter);
 app.use(authRouter);
 
-app.get("/", home);
 app.get("/contact-form", contactForm);
 
 // Services
-function home(req, res) {
-  // res.render("index");
-  res.redirect("/project");
-}
 
 function contactForm(req, res) {
   const isLogin = req.session.isLogin;

@@ -91,7 +91,7 @@ async function createProject(req, res) {
         "https://www.pwc.com/content/dam/pwc/cz/cs/technology-consulting/kariera/hero_telekomunikace.jpg",
     });
 
-    res.redirect("/project");
+    res.redirect("/");
   } catch (error) {
     console.log(error, "<<< error create data project");
   }
@@ -152,7 +152,7 @@ async function updateProject(req, res) {
       }
     );
 
-    res.redirect("/project");
+    res.redirect("/");
   } catch (error) {
     console.log(error, "<<<< error edit project");
   }
@@ -176,7 +176,7 @@ async function deleteProject(req, res) {
       },
     });
 
-    res.redirect("/project");
+    res.redirect("/");
   } catch (error) {
     console.log(error, "<<<< error delete project");
   }

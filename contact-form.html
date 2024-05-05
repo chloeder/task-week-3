@@ -73,23 +73,27 @@
       <form class="row g-4">
         <div class="col-12">
           <label for="project" class="form-label">Name</label>
-          <input type="text" class="form-control" id="inputAddress" />
+          <input type="text" class="form-control" id="name" />
         </div>
         <div class="col-12">
           <label for="project" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputAddress" />
+          <input type="email" class="form-control" id="email" />
         </div>
         <div class="col-12">
           <label for="project" class="form-label">Phone Number</label>
-          <input type="number" class="form-control" id="inputAddress" />
+          <input type="number" class="form-control" id="phone" />
         </div>
         <div class="col-12">
           <label for="project" class="form-label">Subject</label>
-          <select class="form-select" aria-label="Default select example">
+          <select
+            class="form-select"
+            id="subject"
+            aria-label="Default select example"
+          >
             <option selected>Open this select menu</option>
-            <option value="1">Website Application</option>
-            <option value="2">Mobile Application</option>
-            <option value="3">Dekstop Application</option>
+            <option value="Website Application">Website Application</option>
+            <option value="Mobile Application">Mobile Application</option>
+            <option value="Dekstop Application">Dekstop Application</option>
           </select>
         </div>
         <div class="col-12">
@@ -103,7 +107,13 @@
           ></textarea>
         </div>
         <div class="col-12 d-flex justify-content-end">
-          <button type="submit" class="btn btn-dark text-end">Submit</button>
+          <button
+            type="button"
+            class="btn btn-dark text-end"
+            onclick="submitHandler()"
+          >
+            Submit
+          </button>
         </div>
       </form>
     </div>
@@ -113,7 +123,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="./assets/scripts/main.js"></script>
+
     <script src="./assets/scripts/contact.js"></script>
   </body>
 </html>

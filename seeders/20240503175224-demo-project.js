@@ -15,8 +15,8 @@ module.exports = {
     await queryInterface.bulkInsert("projects", [
       {
         name: "Project 1",
-        start_date: new Date(),
-        end_date: new Date(),
+        startDate: new Date(),
+        endDate: new Date(),
         description: "Project 1 description",
         technologies: ["react", "node-js", "android"],
         image:

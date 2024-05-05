@@ -20,7 +20,6 @@ app.use("/assets", express.static(path.join(__dirname, "./assets")));
 // Routes
 app.get("/", home);
 
-app.get("/project", project);
 app.get("/detail-project/:id", detailProject);
 
 app.get("/add-project", addProjectView);
@@ -64,19 +63,14 @@ function dateFormat(date) {
 }
 
 // Services
-function home(req, res) {
-  // res.render("index");
-  res.redirect("/project");
-}
-
-async function project(req, res) {
+async function home(req, res) {
   try {
     const query = "SELECT * FROM projects";
     const data = await sequelize.query(query, {
       type: QueryTypes.SELECT,
     });
 
-    res.render("project", { data });
+    res.render("index", { data });
   } catch (error) {
     console.log(error);
   }
@@ -99,7 +93,7 @@ async function addProject(req, res) {
 
   console.log("add project", data);
 
-  res.redirect("/project");
+  res.redirect("/");
 }
 
 function editProjectView(req, res) {
@@ -131,7 +125,7 @@ function editProject(req, res) {
     file: "https://plus.unsplash.com/premium_photo-1688045530445-66a06a5e9ba6?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   };
   // console.log("edit project", data);
-  res.redirect("/project");
+  res.redirect("/");
 }
 
 async function detailProject(req, res) {
@@ -156,7 +150,7 @@ function deleteProject(req, res) {
   data.splice(index, 1);
   // console.log(index);
 
-  res.redirect("/project");
+  res.redirect("/");
 }
 
 function contactForm(req, res) {

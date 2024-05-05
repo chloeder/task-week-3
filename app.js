@@ -16,6 +16,8 @@ app.use(express.urlencoded({ extended: false }));
 
 // Middleware
 app.use("/assets", express.static(path.join(__dirname, "./assets")));
+app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
+
 app.use(
   session({
     name: process.env.SESSION_NAME,
@@ -33,14 +35,9 @@ app.use(
 app.use(indexRouter);
 app.use(authRouter);
 
-app.get("/", home);
 app.get("/contact-form", contactForm);
 
 // Services
-function home(req, res) {
-  // res.render("index");
-  res.redirect("/project");
-}
 
 function contactForm(req, res) {
   const isLogin = req.session.isLogin;

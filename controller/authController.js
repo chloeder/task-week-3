@@ -1,14 +1,8 @@
 const bcrypt = require("bcrypt");
-const { user } = require("../models");
+const { User } = require("../models");
 const { where } = require("sequelize");
-const Swal = require("sweetalert2");
 
 function loginView(req, res) {
-  // Swal.fire({
-  //   title: "Email or password invalid!",
-  //   icon: "error",
-  //   confirmButtonText: "OK",
-  // });
   res.render("login");
 }
 
@@ -16,7 +10,7 @@ async function login(req, res) {
   try {
     const { email, password } = req.body;
 
-    const findUser = await user.findOne({
+    const findUser = await User.findOne({
       where: {
         email,
       },
@@ -51,12 +45,12 @@ async function register(req, res) {
   const salt = 10;
   const hashPassword = await bcrypt.hash(password, salt);
 
-  await user.create({
+  await User.create({
     name,
     email,
     password: hashPassword,
   });
-  res.redirect("/");
+  res.redirect("/login");
 }
 
 async function logout(req, res) {
@@ -65,7 +59,7 @@ async function logout(req, res) {
       if (err) return console.error("Logout failed!");
 
       console.log("Logout success!");
-      res.redirect("/");
+      res.redirect("/login");
     });
   } catch (error) {
     console.log(error, "<<< error logout");

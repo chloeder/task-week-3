@@ -1,24 +1,29 @@
 const config = require("../config/config.json");
 const hbs = require("hbs");
-const { Sequelize, QueryTypes } = require("sequelize");
-const { calculateDuration, dateFormat } = require("../assets/scripts/main");
+const { Sequelize, QueryTypes, where } = require("sequelize");
+const {
+  calculateDuration,
+  dateFormat,
+  diffForHumans,
+} = require("../utils/dateTimeCalculation");
 const sequelize = new Sequelize(config.development);
-const { project } = require("../models");
-const Swal = require("sweetalert2");
+const { Project, User } = require("../models");
 
 // Fetch all projects
 async function findAllProjects(req, res) {
   try {
-    Swal.fire("SweetAlert2 is working!");
-
     // Using query raw ----
-    // const query = "SELECT * FROM projects";
-    // const data = await sequelize.query(query, {
-    //   type: QueryTypes.SELECT,
-    // });
+    const query = `SELECT public."Projects".id, public."Projects"."projectName", public."Projects"."startDate", public."Projects"."endDate", public."Projects".description, public."Projects".technologies, public."Projects".image, public."Projects"."createdAt", public."Users".name FROM public."Users" JOIN public."Projects" ON public."Users".id = public."Projects"."userId";`;
+    const data = await sequelize.query(query, { type: QueryTypes.SELECT });
 
     // Using model query ----
-    const data = await project.findAll();
+    // const data = await Project.findAll({
+    //   includes: [
+    //     {
+    //       model: User,
+    //     },
+    //   ],
+    // });
 
     const isLogin = req.session.isLogin;
     const findUser = req.session.findUser;
@@ -27,6 +32,11 @@ async function findAllProjects(req, res) {
       return calculateDuration(startDate, endDate);
     });
 
+    hbs.registerHelper("diffForHumans", function (date) {
+      return diffForHumans(date);
+    });
+
+    // res.status(200).json({ data });
     res.render("project", { data, isLogin, findUser });
   } catch (error) {
     console.log(error, "<<<< error get projects");
@@ -45,7 +55,7 @@ async function getProjectById(req, res) {
     // });
 
     // Using model query ----
-    const data = await project.findByPk(id);
+    const data = await Project.findByPk(id);
 
     hbs.registerHelper("dateFormat", function (value) {
       return dateFormat(value);
@@ -80,18 +90,21 @@ async function createProject(req, res) {
     //   type: QueryTypes.INSERT,
     // });
 
+    // Upload image
+    const image = req.file.path;
+
     // Using model query ----
-    const data = await project.create({
-      name: projectName,
+    const data = await Project.create({
+      projectName,
       startDate,
       endDate,
       description,
       technologies,
-      image:
-        "https://www.pwc.com/content/dam/pwc/cz/cs/technology-consulting/kariera/hero_telekomunikace.jpg",
+      image,
+      userId: req.session.findUser.id,
     });
-
-    res.redirect("/project");
+    console.log(data, "<<< create data project");
+    res.redirect("/");
   } catch (error) {
     console.log(error, "<<< error create data project");
   }
@@ -109,7 +122,7 @@ async function updateProjectView(req, res) {
     // });
 
     // Using model query ---
-    const data = await project.findByPk(id);
+    const data = await Project.findByPk(id);
 
     // Custom Helper for checkbox
     hbs.registerHelper("isChecked", function (value) {
@@ -135,9 +148,9 @@ async function updateProject(req, res) {
     // });
 
     // Using model query
-    const data = await project.update(
+    const data = await Project.update(
       {
-        name: projectName,
+        projectName,
         startDate,
         endDate,
         description,
@@ -152,7 +165,7 @@ async function updateProject(req, res) {
       }
     );
 
-    res.redirect("/project");
+    res.redirect("/");
   } catch (error) {
     console.log(error, "<<<< error edit project");
   }
@@ -170,13 +183,13 @@ async function deleteProject(req, res) {
     // });
 
     // Using model query ---
-    const data = await project.destroy({
+    const data = await Project.destroy({
       where: {
         id,
       },
     });
 
-    res.redirect("/project");
+    res.redirect("/");
   } catch (error) {
     console.log(error, "<<<< error delete project");
   }

@@ -213,24 +213,26 @@
                   </small>
                 </p> --}}
               </div>
-              <div class="card-footer text-center">
-                <a
-                  href="/edit-project/{{id}}"
-                  class="btn btn-primary"
-                  style="width: 40%"
-                >Edit</a>
-                <form
-                  action="/delete-project/{{id}}"
-                  method="post"
-                  class="d-inline"
-                >
-                  <button
-                    type="submit"
+              {{#if ../isLogin}}
+                <div class="card-footer text-center">
+                  <a
+                    href="/edit-project/{{id}}"
                     class="btn btn-primary"
                     style="width: 40%"
-                  >Delete</button>
-                </form>
-              </div>
+                  >Edit</a>
+                  <form
+                    action="/delete-project/{{id}}"
+                    method="post"
+                    class="d-inline"
+                  >
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      style="width: 40%"
+                    >Delete</button>
+                  </form>
+                </div>
+              {{/if}}
             </div>
           </div>
         {{/each}}

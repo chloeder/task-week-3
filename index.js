@@ -17,7 +17,6 @@ app.use("/assets", express.static(path.join(__dirname, "./assets")));
 // Routes
 app.get("/", home);
 
-app.get("/project", project);
 app.get("/detail-project/:id", detailProject);
 
 app.get("/add-project", addProjectView);
@@ -62,12 +61,7 @@ function dateFormat(date) {
 
 // Services
 function home(req, res) {
-  // res.render("index");
-  res.redirect("/project");
-}
-
-function project(req, res) {
-  res.render("project", { data });
+  res.render("index", { data });
 }
 
 function addProjectView(req, res) {
@@ -88,16 +82,14 @@ function addProject(req, res) {
     technologies,
     file: "https://plus.unsplash.com/premium_photo-1688045530445-66a06a5e9ba6?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   });
-  // console.log("add project", data);
 
-  res.redirect("/project");
+  res.redirect("/");
 }
 
 function editProjectView(req, res) {
   const { id } = req.params;
 
   const project = data.find((data) => data.id == id);
-  // console.log(project);
 
   hbs.registerHelper("isChecked", function (value) {
     return project.technologies.includes(value) ? "checked" : "";
@@ -121,8 +113,8 @@ function editProject(req, res) {
     technologies,
     file: "https://plus.unsplash.com/premium_photo-1688045530445-66a06a5e9ba6?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   };
-  // console.log("edit project", data);
-  res.redirect("/project");
+
+  res.redirect("/");
 }
 
 function detailProject(req, res) {
@@ -142,9 +134,8 @@ function deleteProject(req, res) {
 
   const index = data.findIndex((data) => data.id == id);
   data.splice(index, 1);
-  // console.log(index);
 
-  res.redirect("/project");
+  res.redirect("/");
 }
 
 function contactForm(req, res) {

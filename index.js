@@ -16,7 +16,6 @@ app.use("/assets", express.static(path.join(__dirname, "./assets")));
 // Routes
 app.get("/", home);
 
-app.get("/project", project);
 app.get("/detail-project/:id", detailProject);
 
 app.get("/add-project", addProjectView);
@@ -29,10 +28,6 @@ const data = [];
 // Services
 function home(req, res) {
   res.render("index");
-}
-
-function project(req, res) {
-  res.render("project");
 }
 
 function addProjectView(req, res) {

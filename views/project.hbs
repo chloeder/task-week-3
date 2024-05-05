@@ -187,8 +187,17 @@
                 />
               </a>
               <div class="card-body">
-                <h1 class="card-title fw-bold text-uppercase">{{name}}</h1>
-                <p>Duration : {{calculateDuration startDate endDate}}</p>
+                <h1
+                  class="card-title fw-bold text-uppercase"
+                >{{projectName}}</h1>
+                <p class="badge bg-primary">
+                  Duration :
+                  {{calculateDuration startDate endDate}}
+                </p>
+                <p class="badge bg-dark">
+                  Author :
+                  {{name}}
+                </p>
                 <p>
                   {{description}}
                 </p>
@@ -197,6 +206,12 @@
                     <i class="fa-brands fa-{{this}}"></i>
                   {{/each}}
                 </div>
+                {{!-- <p class="card-text">
+                  <small class="text-muted">
+                    Last updated
+                    {{diffForHumans updatedAt}}
+                  </small>
+                </p> --}}
               </div>
               <div class="card-footer text-center">
                 <a

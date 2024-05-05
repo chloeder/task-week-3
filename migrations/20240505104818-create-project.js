@@ -2,14 +2,14 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("projects", {
+    await queryInterface.createTable("Projects", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
+      projectName: {
         type: Sequelize.STRING,
       },
       startDate: {
@@ -27,6 +27,16 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
       },
+      userId: {
+        type: Sequelize.DataTypes.INTEGER,
+        references: {
+          model: "Users",
+          key: "id",
+        },
+        allowNull: false,
+        onDelete: "cascade",
+        onUpdate: "cascade",
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -38,6 +48,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("projects");
+    await queryInterface.dropTable("Projects");
   },
 };

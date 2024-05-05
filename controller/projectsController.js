@@ -4,10 +4,13 @@ const { Sequelize, QueryTypes } = require("sequelize");
 const { calculateDuration, dateFormat } = require("../assets/scripts/main");
 const sequelize = new Sequelize(config.development);
 const { project } = require("../models");
+const Swal = require("sweetalert2");
 
 // Fetch all projects
 async function findAllProjects(req, res) {
   try {
+    Swal.fire("SweetAlert2 is working!");
+
     // Using query raw ----
     // const query = "SELECT * FROM projects";
     // const data = await sequelize.query(query, {
@@ -17,11 +20,14 @@ async function findAllProjects(req, res) {
     // Using model query ----
     const data = await project.findAll();
 
+    const isLogin = req.session.isLogin;
+    const findUser = req.session.findUser;
+
     hbs.registerHelper("calculateDuration", function (startDate, endDate) {
       return calculateDuration(startDate, endDate);
     });
 
-    res.render("project", { data });
+    res.render("project", { data, isLogin, findUser });
   } catch (error) {
     console.log(error, "<<<< error get projects");
   }
@@ -53,7 +59,13 @@ async function getProjectById(req, res) {
 
 // Add new project view
 function createProjectView(req, res) {
-  res.render("add-project");
+  if (req.session.isLogin) {
+    const isLogin = req.session.isLogin;
+    const findUser = req.session.findUser;
+    res.render("add-project", { isLogin, findUser });
+  } else {
+    res.redirect("/login");
+  }
 }
 
 // Add new project logic
